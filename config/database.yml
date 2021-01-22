@@ -1,0 +1,23 @@
+
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  host: db
+  user: postgres
+  password: <%= ENV['DB_PASSWORD'] %>
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+
+development:
+  <<: *default
+  database: naveg_mvp_development
+
+test:
+  <<: *default
+  database: naveg_mvp_test
+
+
+production:
+  <<: *default
+  database: naveg_mvp_production
+  username: naveg_mvp
+  password: <%= ENV['NAVEG_MVP_DATABASE_PASSWORD'] %>
