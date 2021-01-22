@@ -1,0 +1,2 @@
+class AdminsBackofficeController < ApplicationController
+end
