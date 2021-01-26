@@ -23,8 +23,10 @@ gem 'devise'
 
 # Internacionalization
 gem 'rails-i18n', '~> 6.0.0' # For 6.0.0 or higher
-
+#terminal animation
 gem 'tty-spinner'
+#genarate faker data
+gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'master'
 
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
