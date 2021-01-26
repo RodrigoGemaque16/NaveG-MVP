@@ -2,7 +2,7 @@ class AdminsBackoffice::UsersController < AdminsBackofficeController
   before_action :verify_password, only: [:update]
   before_action :set_user, only: [:update,:edit]
   def index
-    @users = User.all
+    @users = User.all.page params[:page]
   end
   
 
