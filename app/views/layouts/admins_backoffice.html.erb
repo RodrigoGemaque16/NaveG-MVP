@@ -1,45 +1,44 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title> Rails6 AdminLTE 3.0</title>
+    <title> NaveG- MVP</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-
   <body data-scrollbar-auto-hide="n" class="hold-transition sidebar-mini layout-fixed">
-      <div class="wrapper">
-        <%= render "admin_template/header" %>
-        <%= render "admin_template/sidebar" %>
-
-        <div class="content-wrapper">
-          <div class="content-header">
-            <div class="container-fluid">
-              <div class="row mb-2">
-                <div class="col-sm-6">
-                  <h1 class="m-0 text-dark">Starter Page</h1>
-                </div><!-- /.col -->
-                <div class="col-sm-6">
-                  <ol class="breadcrumb float-sm-right">
-                    <li class="breadcrumb-item"><a href="#">Home</a></li>
-                    <li class="breadcrumb-item active">Starter Page</li>
-                  </ol>
-                </div><!-- /.col -->
-              </div><!-- /.row -->
-            </div><!-- /.container-fluid -->
-          </div>
-
-          <div class="content container-fluid">
-            <div class="container-fluid">
-              <%= yield %>
+    <div class="wrapper">
+      <%= render "admin_template/header" %>
+      <%= render "admin_template/sidebar" %>
+      <div class="content-wrapper">
+        <div class="content-header">
+          <div class="container-fluid">
+            <div class="row mb-2">
+              <div class="col-sm-6">
+                <h1 class="m-0 text-dark">Layout Administrativo</h1>
+              </div>
+              <!-- /.col -->
+              <div class="col-sm-6">
+                <ol class="breadcrumb float-sm-right">
+                  <li class="breadcrumb-item"><a href="#">Home</a></li>
+                  <li class="breadcrumb-item active">Starter Page</li>
+                </ol>
+              </div>
+              <!-- /.col -->
             </div>
+            <!-- /.row -->
+          </div>
+          <!-- /.container-fluid -->
+        </div>
+        <div class="content container-fluid">
+          <div class="container-fluid">
+            <%= yield %>
           </div>
         </div>
-
-        <%= render "admin_template/footer" %>
-        <%= render "admin_template/control_sidebar" %>
+      </div>
+      <%= render "admin_template/footer" %>
+      <%= render "admin_template/control_sidebar" %>
       <div>
-  </body>
-</html>
+      </body>
+    </html>
