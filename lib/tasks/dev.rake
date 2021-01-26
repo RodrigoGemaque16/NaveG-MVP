@@ -3,25 +3,25 @@ namespace :dev do
   DEFAULT_PASSWORD = 123456
   DEFAULT_FILES_PATH = File.join(Rails.root, 'lib', 'tmp')
 
-  desc "Configura o ambiente de desenvolvimento"
+  desc "Config develop environment "
   task setup: :environment do
     if Rails.env.development?
-      show_spinner("Apagando BD...") { %x(rails db:drop) }
-      show_spinner("Criando BD...") { %x(rails db:create) }
-      show_spinner("Migrando BD...") { %x(rails db:migrate) }
-      show_spinner("Cadastrando o administrador padrão...") { %x(rails dev:add_default_admin) }
-      show_spinner("Cadastrando o Usuário padrão...") { %x(rails dev:add_default_user) }
-      # show_spinner("Cadastrando administradores extras...") { %x(rails dev:add_extra_admins) }
+      show_spinner("Drop DB...") { %x(rails db:drop) }
+      show_spinner("Create DB...") { %x(rails db:create) }
+      show_spinner("Migrate DB...") { %x(rails db:migrate) }
+      show_spinner("registering standard administrator...") { %x(rails dev:add_default_admin) }
+      show_spinner("registering standard user...") { %x(rails dev:add_default_user) }
+      show_spinner("Registering extra users...") { %x(rails dev:add_extra_users) }
       # show_spinner("Cadastrando assuntos padrões...") { %x(rails dev:add_subjects) }
       # show_spinner("Cadastrando perguntas e respostas...") { %x(rails dev:add_answers_and_questions) }
 
       # show_spinner("Cadastrando o usuário padrão...") { %x(rails dev:add_default_user) }
     else
-      puts "Você não está em ambiente de desenvolvimento!"
+      puts "You are not in develop environment!"
     end
   end
 
-  desc "Adiciona o administrador padrão"
+  desc "Add default admin"
   task add_default_admin: :environment do
     Admin.create!(
       email: 'admin@admin.com',
@@ -29,19 +29,7 @@ namespace :dev do
       password_confirmation: DEFAULT_PASSWORD
     )
   end
-
-  # desc "Adiciona administradores extras"
-  # task add_extra_admins: :environment do
-  #   10.times do |i|
-  #     Admin.create!(
-  #       email: Faker::Internet.email,
-  #       password: DEFAULT_PASSWORD,
-  #       password_confirmation: DEFAULT_PASSWORD
-  #     )
-  #   end
-  # end
-
-  desc "Adiciona o usuário padrão"
+  desc "Add default admin"
   task add_default_user: :environment do
     User.create!(
       email: 'user@user.com',
@@ -49,6 +37,19 @@ namespace :dev do
       password_confirmation: DEFAULT_PASSWORD
     )
   end
+
+  desc "Add Users Extras"
+  task add_extra_users: :environment do
+    10.times do |i|
+      User.create!(
+        email: Faker::Internet.email,
+        password: DEFAULT_PASSWORD,
+        password_confirmation: DEFAULT_PASSWORD
+      )
+    end
+  end
+
+
 
   # desc "Adiciona assuntos padrões"
   # task add_subjects: :environment do
