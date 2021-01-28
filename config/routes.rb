@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
   namespace :admins_backoffice do
+    get 'harbors/index'
+  end
+  namespace :admins_backoffice do
     get 'users/index'
   end
   namespace :site do
@@ -15,6 +18,7 @@ Rails.application.routes.draw do
     get 'welcome/index'
     resources :users
     resources :admins
+    resources :harbors
   end
 
   root to: 'site/welcome#index'  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
