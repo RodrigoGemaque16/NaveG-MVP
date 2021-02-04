@@ -23,10 +23,7 @@ gem 'devise'
 
 # Internacionalization
 gem 'rails-i18n', '~> 6.0.0' # For 6.0.0 or higher
-#terminal animation
-gem 'tty-spinner'
-#genarate faker data
-gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'master'
+
 #pagination
 gem 'kaminari'
 gem 'kaminari-i18n'
@@ -46,10 +43,18 @@ gem 'bootsnap', '>= 1.4.2', require: false
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  # terminal animation
+  gem 'tty-spinner'
+  #  tests for Rspec
+  gem 'factory_bot_rails'
+  gem 'faker'
+  gem 'rspec-rails', '~> 4.0.1'
+  gem 'shoulda-matchers', '~> 4.0'
+
 end
 
 group :development do
-  gem 'rspec-rails', '~> 4.0'
+ 
  # Access an interactive console on exception pages or by calling 'console' anywhere in the code.
   gem 'web-console', '>= 3.3.0'
   gem 'listen', '>= 3.0.5', '< 3.2'
