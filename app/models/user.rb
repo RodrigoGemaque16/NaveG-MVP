@@ -7,4 +7,8 @@ class User < ApplicationRecord
 
   #Kaminari pagination
   paginates_per 5
+
+  #validates testes rspec
+  validates :email, presence: true 
+
 end
