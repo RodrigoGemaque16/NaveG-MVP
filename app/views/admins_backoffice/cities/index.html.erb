@@ -1,0 +1,44 @@
+
+<h1>Listando Cidades</h1>
+<div class="table-responsive">
+
+  <table class="table table-striped table-bordered table-hover">
+    <thead>
+      <tr>
+        <th>Id</th>
+        <th>Nome</th>
+
+        
+        <th>
+          <%= link_to new_admins_backoffice_city_path, class:"btn btn-success btn-circle  " do %>
+            <i class="fa fa-plus"></i>
+          <% end %>
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @cities.each do |city| %>
+        <tr>
+          <td><%= city.id %></td>
+          <td><%= city.name %></td>
+          
+
+            <td style="width: 150px">
+              <%=link_to edit_admins_backoffice_city_path(city.id), class: 'btn btn-primary btn-circle btn-sm'   do%>
+                <i class="fas fa-edit"></i> Edit
+              <%end%>                           
+
+              <%=link_to admins_backoffice_city_path(city.id),method: :delete, class: 'btn btn-danger btn-sm',data:{confirm: t('messages.confirm_with', item: city.name)} do%>
+                  <i class="fas fa-trash"></i> Del
+              <%end%>
+            </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+
+
+<div class = "d-flex justify-content-center"> 
+  <%# <%= paginate @users %> 
+</div>
