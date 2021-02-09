@@ -8,7 +8,6 @@
         <th>Id</th>
         <th>Nome</th>
         <th>Cidade</th>
-        <th>Estado</th>
 
         
         <th>
@@ -23,8 +22,8 @@
         <tr>
           <td><%= harbor.id %></td>
           <td><%= harbor.name %></td>
-          <td><%= harbor.city %></td>
-          <td><%= harbor.state %></td>
+          <td><%= harbor.city_id %></td>
+          
 
             <td style="width: 150px">
               <%=link_to edit_admins_backoffice_harbor_path(harbor.id), class: 'btn btn-primary btn-circle btn-sm'   do%>
