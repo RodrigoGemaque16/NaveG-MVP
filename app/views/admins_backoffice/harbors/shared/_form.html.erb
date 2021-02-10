@@ -46,16 +46,14 @@
           <%= form.text_field :name, class:"form-control",
           placeholder:"Nome do Porto" %>
         </div>
-        <div class="form-group">
-          <%= form.label :city %>
-          <%= form.text_field :city, class:"form-control",
-          placeholder:"Cidade em que se encontra o porto" %>
-        </div>
-        <div class="form-group">
-          <%= form.label :state %>
-          <%= form.text_field :state,
-          class:"form-control", placeholder:"Estado do Porto" %>
-        </div>
+       
+
+        <div class="card-body">
+        <div class="form-group">          
+          <%=form.label :city_id%>
+          <%=form.collection_select(:city_id, @cities ,:id,:name,{}, { class:"form-control"})%>
+        </div> 
+
         <button type="submit" class="btn btn-default">Salvar</button>
     
 
