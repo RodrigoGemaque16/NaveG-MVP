@@ -1,9 +1,10 @@
 class AdminsBackoffice::HarborsController < AdminsBackofficeController
   before_action :verify_fields, only: [:update]
   before_action :set_harbor, only: [:update,:edit]
+  before_action :get_cities , only: [:edit, :new]
 
   def index
-    @harbors = Harbor.all
+    @harbors = Harbor.includes(:city).order(:name )
   end
 
   def new
@@ -13,8 +14,7 @@ class AdminsBackoffice::HarborsController < AdminsBackofficeController
   def create
     @harbor = Harbor.new(params_harbor)
     if @harbor.save
-      flash[:success] = "Object successfully created"
-      
+      flash[:success] = "Object successfully created"      
       redirect_to admins_backoffice_harbors_path
     else
       flash[:error] = "Something went wrong"
@@ -46,7 +46,7 @@ class AdminsBackoffice::HarborsController < AdminsBackofficeController
 
   private
   def params_harbor
-      params.require(:harbor).permit(:name, :city,:state)
+      params.require(:harbor).permit(:name, :city_id,:state)
   end
 
   def verify_fields
@@ -55,6 +55,9 @@ class AdminsBackoffice::HarborsController < AdminsBackofficeController
     end   
   end
 
+  def get_cities
+    @cities = City.all
+  end
   def set_harbor 
     @harbor = Harbor.find(params[:id])
   end  
