@@ -46,12 +46,12 @@ class AdminsBackoffice::CitiesController < AdminsBackofficeController
 
   private
   def params_city
-      params.require(:city).permit(:name, :city,:state)
+      params.require(:city).permit(:name)
   end
 
   def verify_fields
-    if params[:city][:name].blank? && params[:city][:city].blank? && params[:city][:state].blank?
-      params[:city].extract!(:name,:city,:state)
+    if params[:city][:name].blank?
+      params[:city].extract!(:name)
     end   
   end
 
